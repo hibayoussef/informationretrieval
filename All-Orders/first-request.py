@@ -2,18 +2,24 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize
 import os
+
+
+# 1-Here we take words from stop words file and save it inside
 stopwords = []
-# file is object of file
 with open("C:/Users/Super/Desktop/IR/homework/Lab4/IR Homework/stop words.txt", 'r') as file:
-    for word in file:
-        word = word.split('\n')
-        stopwords.append(word[0])
+    for stop_word in file:
+        stop_word = stop_word.split('\n')
+        stopwords.append(stop_word[0])
 
-print('stopwords', stopwords)
+print('stopwords in file are:', stopwords)
 
-# import os
-#
-# with os.scandir('../Files/stop words.txt') as entries:
-#     for entry in entries:
-#         stopwords.append(entry[0])
-#         print(entry)
+
+# 2-read each file inside corpus dictionary and print the name of file and calculate the number of files
+documents = os.scandir('C:/Users/Super/Desktop/IR/homework/Lab4/corpus/corpus')
+words = []
+totalDocuments = 0
+for document in documents:
+    print('document name:', document.name)
+    totalDocuments += 1
+
+print('totalDocuments:', totalDocuments)
