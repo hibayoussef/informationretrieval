@@ -16,10 +16,19 @@ print('stopwords in file are:', stopwords)
 
 # 2-read each file inside corpus dictionary and print the name of file and calculate the number of files
 documents = os.scandir('C:/Users/Super/Desktop/IR/homework/Lab4/corpus/corpus')
-words = []
+words_In_document = []
 totalDocuments = 0
 for document in documents:
-    print('document name:', document.name)
+    with open(document, 'r') as doc:
+        for line in doc:
+            # print the content of each alone file as line
+            print('document name:', document.name, line)
+            for word in line.split():
+                # print words that found in all files without separates
+                words_In_document.append(word)
+
     totalDocuments += 1
 
+# The contents of all files without separates
+print('words_In_document:', words_In_document)
 print('totalDocuments:', totalDocuments)
