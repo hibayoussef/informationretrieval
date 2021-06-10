@@ -19,6 +19,8 @@ for document in os.listdir(dir_path):
         save_file = open(save_dir + document, 'w')
         text = reader.read()
         cleaned = [word for word in text.split() if (word not in stop_words_list)]
-        save_file.writelines(["%s\n" % item for item in cleaned])
+        save_file.writelines(["%s " % item for item in cleaned])
+
+
 
 
