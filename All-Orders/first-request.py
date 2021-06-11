@@ -3,7 +3,6 @@ from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
 import os
 
-# 1-stop word processing
 stop_words_list = stopwords.words('english')
 additional_stopwords = []
 
@@ -13,9 +12,7 @@ with open("C:/Users/Super/Desktop/IR/homework/Lab4/IR Homework/stop words.txt", 
         additional_stopwords.append(word[0])
 
 stop_words_list += additional_stopwords
-# --------------
 
-# 2-tokenize and stemming
 dir_path = 'C:/Users/Super/Desktop/IR/homework/Lab4/corpus/corpus/'
 save_dir = "C:/Users/Super/Desktop/IR/homework/Files_Without_SW/"
 
