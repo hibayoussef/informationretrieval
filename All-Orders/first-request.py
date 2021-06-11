@@ -24,16 +24,14 @@ for document in os.listdir(dir_path):
         save_file = open(save_dir + document, 'w')
         text = reader.read()
         text_tokens = word_tokenize(text)
-        tokens_without_sw = [word for word in text_tokens if (word not in stop_words_list)]
-        save_file.writelines(["%s " % item for item in tokens_without_sw])
+        tokens_without_sw = [word.replace(',', ' ').replace('.', ' ') for word in text_tokens if (word not in stop_words_list)]
+        save_file.writelines(["%s " % item.replace(',', ' ').replace('.', ' ') for item in tokens_without_sw])
         print(document, ':', tokens_without_sw)
         ps = PorterStemmer()
-        with open("../Files/stemmer_words.txt", "a+") as stemFile:
+        with open("../Files/stemmer_words_files.txt", "a+") as stemFile:
             for stemWord in tokens_without_sw:
                 stemFile.write(stemWord)
                 stemFile.write(":")
                 stemFile.write(ps.stem(stemWord))
                 stemFile.write('\n')
-
-
 
