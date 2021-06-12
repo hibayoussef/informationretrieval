@@ -20,7 +20,7 @@ for w in tokenize_sentence:
 
 #3-Lemmatizing
 # if i need adjective i will put "pos="a""
-lemmatizer = WordNetLemmatizer()
-print(lemmatizer.lemmatize(w, pos="v"))
-
-
+# lemmatizer = WordNetLemmatizer()
+# print(lemmatizer.lemmatize(w, pos="v"))
+#
+#
