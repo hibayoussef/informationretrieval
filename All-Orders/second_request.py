@@ -10,7 +10,7 @@ files = remove_stop_word_from_files()
 punctuations = "?:!.,;"
 marks = "''``"
 for word in files:
-    if word in punctuations and  word in marks:
+    if word in punctuations and word in marks:
         files.remove(word)
         files.remove(word)
 

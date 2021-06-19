@@ -1,6 +1,11 @@
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
+from nltk.stem import WordNetLemmatizer
+
+wordnet_lemmatizer = WordNetLemmatizer()
+
+
 import string
 import os
 
@@ -94,3 +99,17 @@ def stem():
 
 
 stem()
+
+files = remove_stop_word_from_files()
+punctuations = "?:!.,;"
+marks = "''``"
+for word in files:
+    if word in punctuations and  word in marks:
+        files.remove(word)
+        files.remove(word)
+
+files
+print("{0:20}{1:20}".format("Word", "Lemma"))
+for word in files:
+    print("{0:20}{1:20}".format(word, wordnet_lemmatizer.lemmatize(word)))
+
