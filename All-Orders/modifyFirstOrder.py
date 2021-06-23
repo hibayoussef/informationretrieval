@@ -24,7 +24,7 @@ def get_stop_words():
     return stop_words_list
 
 
-get_stop_words()
+# get_stop_words()
 
 
 # ------------------------------
@@ -79,7 +79,7 @@ def remove_stop_word_from_files():
     return all_tokens_without_sw
 
 
-print(remove_stop_word_from_files())
+# print(remove_stop_word_from_files())
 
 # -------------------------------
 
@@ -98,18 +98,18 @@ def stem():
     return stemFile
 
 
-stem()
-
-files = remove_stop_word_from_files()
-punctuations = "?:!.,;"
-marks = "''``"
-for word in files:
-    if word in punctuations and  word in marks:
-        files.remove(word)
-        files.remove(word)
-
-files
-print("{0:20}{1:20}".format("Word", "Lemma"))
-for word in files:
-    print("{0:20}{1:20}".format(word, wordnet_lemmatizer.lemmatize(word)))
+# stem()
+#
+# files = remove_stop_word_from_files()
+# punctuations = "?:!.,;"
+# marks = "''``"
+# for word in files:
+#     if word in punctuations and  word in marks:
+#         files.remove(word)
+#         files.remove(word)
+#
+# files
+# print("{0:20}{1:20}".format("Word", "Lemma"))
+# for word in files:
+#     print("{0:20}{1:20}".format(word, wordnet_lemmatizer.lemmatize(word)))
 
