@@ -24,16 +24,20 @@ irregular_verbs_file = []
 
 def access_irregular_verbs():
     irregular_verbs_list = read_irregular_verbs()
+    for t in irregular_verbs_list:
+        for words in corpus:
+            for word in words:
+                if t != word[0]:
+                    continue
+                else:
+                    with open('../Files/irregular_verbs_output.txt', 'a+') as irregular_file:
+                        irregular_file.write(t)
 
-    pp = [t for t in irregular_verbs_list if t in corpus]
-    fi = (" ").join(pp)
-    with open('../Files/irregular_verbs_output.txt', 'w') as fw:
-        fw.write(fi)
-
-    return fw
+    return irregular_verbs_list
 
 
 print(access_irregular_verbs())
+
 
 import nltk
 # from modifyFirstOrder import remove_stop_word_from_files
