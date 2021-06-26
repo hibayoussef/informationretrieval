@@ -62,15 +62,15 @@ def read_corpus_files_and_make_stemming():
             save_file = open(save_dir + document, 'w')
             text = reader.read()
             # -------------------
+
             text = text.replace('.', ' ').replace(',', ' ')
-            text = text.replace(':', ' ').replace('?', ' ').replace('!', ' ')
+
             text = text.replace('  ', ' ')  # convert double space into single space
-            text = text.replace('"', ' ').replace('``', ' ')
             text = text.strip()  # remove space at the end
             # ---------------
 
-            text_tokens = word_tokenize(text)
-            tokens_without_sw = [word for word in text_tokens if
+            # text_tokens = word_tokenize(text)
+            tokens_without_sw = [word for word in text.split(' ') if
                                  (word not in stop_words_list)]
             save_file.writelines(["%s " % item for item in tokens_without_sw])
             # print(document, ':', tokens_without_sw)
